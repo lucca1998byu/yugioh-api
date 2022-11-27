@@ -1,0 +1,39 @@
+<%= simple_form_for [@list, @favorite] do |f| %>
+  <%= f.association :card %>
+  <%= f.submit :submit, value: "add", class: 'btn btn-primary' %>
+  <%= link_to "cancel", list_path(@list), class: "btn btn-secondary" %>
+<% end %>
+
+
+
+<!-- <div class="d-flex position-fixed z-index">
+  <%= link_to list_path(@list), class: "btn btn-primary" do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+
+  <%= form_with url: cards_path, method: :get, class: "d-flex" do  %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a card" %>
+
+    <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  <% end %>
+</div>
+<section class="card-container">
+  <% @cards.sample(100).each do |card| %>
+    <div class="card">
+      <div class="front">
+        <%= "<img title='#{card.name}' src='#{card.image_url}'>".html_safe %>
+      </div>
+      <div class="back">
+        <%= "<img title='#{card.name}' src='https://i.pinimg.com/originals/ab/c9/85/abc9857e3024baba31716ec0a3d77858.jpg'>".html_safe %>
+      </div>
+      <%= link_to new_list_favorite_path(card), class: "z-index btn btn-light" do %>
+        <i class="fa-solid fa-heart"></i>
+      <% end %>
+    </div>
+  <% end %>
+</section> -->

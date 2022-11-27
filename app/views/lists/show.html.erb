@@ -1,0 +1,38 @@
+<div class="d-flex position-fixed z-index">
+  <%= link_to lists_path, class: "btn btn-primary" do %>
+    <i class="fa-sharp fa-solid fa-house"></i>
+  <% end %>
+  <h2 class="m-0 list_name align-self-center btn btn-light"><%= @list.name %></h2>
+  <%= link_to new_list_favorite_path(@list), class: "btn btn-primary" do %>
+    <i class="fa-regular fa-plus"></i>
+  <% end %>
+</div>
+<div class="card-container">
+  <% @list.favorites.each do |f|%>
+    <div class="card pt-5 m-4">
+      <div class="front">
+        <%= "<img title='#{f.card.name}' src='#{f.card.image_url}'>".html_safe %>
+      </div>
+      <div class="back">
+        <%= "<img title='#{f.card.name}' src='https://i.pinimg.com/originals/ab/c9/85/abc9857e3024baba31716ec0a3d77858.jpg'>".html_safe %>
+      </div>
+      <%= link_to favorite_path(f), data: { turbo_method: :delete, turbo_confirm: "Are you sure? #{f.card.name} will be removed from list." }, class: "trash" do %>
+        <%= render 'shared/trash'%>
+      <% end %>
+    </div>
+  <% end %>
+  <!--
+  <% @list.favorites.each do |card| %>
+    <% favorite = Favorite.find_by(list: @list, card: card) %>
+    <div class="card">
+      <div class="front">
+        <%= "<img title='#{card.card.name}' src='#{card.card.image_url}'>".html_safe %>
+      </div>
+      <div class="back">
+        <%= "<img title='#{card.card.name}' src='https://i.pinimg.com/originals/ab/c9/85/abc9857e3024baba31716ec0a3d77858.jpg'>".html_safe %>
+      </div>
+      <%= link_to "delete", favorite_path(card.card), class:"z-index", data: { turbo_method: :destroy, turbo_confirm: "are you sure?" } %>
+    </div>
+  <% end %>
+  -->
+</div>
