@@ -2,22 +2,16 @@
   <%= link_to lists_path, class: "btn btn-primary" do %>
     <i class="fa-sharp fa-solid fa-house"></i>
   <% end %>
-
   <%= form_with url: cards_path, method: :get, class: "d-flex" do  %>
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a card" %>
-
     <%= button_tag(type: "submit", class: "btn btn-primary") do %>
       <i class="fa-solid fa-magnifying-glass"></i>
     <% end %>
   <% end %>
 </div>
-
-
-
-
 <section class="card-container">
   <% @cards.sample(100).each do |card| %>
     <div class="card pt-5">
@@ -27,7 +21,6 @@
       <div class="back">
         <%= "<img title='#{card.name}' src='https://i.pinimg.com/originals/ab/c9/85/abc9857e3024baba31716ec0a3d77858.jpg'>".html_safe %>
       </div>
-
     </div>
   <% end %>
 </section>
