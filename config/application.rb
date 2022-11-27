@@ -15,6 +15,7 @@ module YugiohApi
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.assets.initialize_on_precompile = false
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -25,4 +26,3 @@ module YugiohApi
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-#config.assets.initialize_on_precompile = false
