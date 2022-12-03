@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
 
   def new
     @favorite = Favorite.new
-    # @card = Card.find(2662)
+
     @list = List.find(params[:list_id])
 
     @cards = Card.all
@@ -41,5 +41,4 @@ class FavoritesController < ApplicationController
   def favorite_params
     params.require(:favorite).permit(:name, :image_url, :card_id, :list_id)
   end
-
 end
